@@ -126,13 +126,10 @@ class TestEdge(unittest.TestCase):
     def test_equal(self):
         e1 = Edge(Hex(0, 0, 0), NE)
         e2 = Edge(Hex(1, -1, 0), SW)
-
         e3 = Edge(Hex(2, -2, 0), SE)
         e4 = Edge(Hex(2, -1, -1), NW)
-
         e5 = Edge(Hex(-2, 0, 2), W)
         e6 = Edge(Hex(-3, 0, 3), E)
-
         self.assertEqual(e1, e2)
         self.assertEqual(e3, e4)
         self.assertEqual(e5, e6)
@@ -170,13 +167,10 @@ class TestVertex(unittest.TestCase):
     def test_equal(self):
         v1 = Vertex(Hex(0, 0, 0), "NW")
         v2 = Vertex(Hex(0, -1, 1), "S")
-
         v3 = Vertex(Hex(1, -2, 1), "S")
         v4 = Vertex(Hex(0, -1, 1), "NE")
-
         v5 = Vertex(Hex(-1, 1, 0), "SE")
         v6 = Vertex(Hex(-1, 2, -1), "N")
-
         self.assertEqual(v1, v2)
         self.assertEqual(v3, v4)
         self.assertEqual(v5, v6)

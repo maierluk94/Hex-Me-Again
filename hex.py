@@ -145,7 +145,7 @@ class Hex:
 @dataclass
 class FractionalHex:
     """A fractional hex may use float as positions.
-    Useful for converting a the position of a point to the closest hex."""
+    Useful for converting the position of a point to the closest hex."""
 
     q: float
     r: float
