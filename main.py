@@ -17,7 +17,7 @@ class Game:
     def __init_pygame(self):
         pygame.init()
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-        pygame.display.set_caption("Cascadia")
+        pygame.display.set_caption("Settlers of Catan")
         self.main()
 
     def add_hex_to_map(self, hex: Hex):
@@ -33,7 +33,6 @@ class Game:
     def main(self) -> None:
         running = True
         while running:
-            # Handle events
             for event in pygame.event.get():
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()

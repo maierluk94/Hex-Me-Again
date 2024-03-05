@@ -174,7 +174,7 @@ class FractionalHex:
 
 @dataclass
 class Edge:
-    """Represents the edge of a hexagon. Each hexagon leads to 3 edges,
+    """Represents the edge of a hexagon. Each hexagon points to 3 edges,
     in NW, NE and E directions."""
 
     h: Hex
@@ -233,7 +233,7 @@ class Edge:
 
 @dataclass
 class Vertex:
-    """Represents the vertex of three hexagons. Each hexagon leads to 2 vertices,
+    """Represents the vertex of a hexagon. Each hexagon points to 2 vertices,
     the top (N) and bottom (S) in pointy top orientation. 
     
     Allowed directions: N, NW, SW, S, SE, SW"""
@@ -241,7 +241,7 @@ class Vertex:
     h: Hex
     direction: str
     
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         assert self.direction in VERTEX_DIRECTIONS, "Invalid direction"
 
         if self.direction == "NW":
