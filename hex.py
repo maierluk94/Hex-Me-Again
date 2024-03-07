@@ -64,6 +64,9 @@ class Hex:
     def __post_init__(self) -> None:
         assert self.q + self.r + self.s == 0, "q + r + s must be 0"
 
+    def __hash__(self):
+        return hash((self.q, self.r, self.s))
+
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Hex):
             return NotImplemented
@@ -191,6 +194,9 @@ class Edge:
             self.h = self.h.get_neighbor(SE)
             self.direction = NW
 
+    def __hash__(self):
+        return hash((self.h, self.direction))
+
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Edge):
             return NotImplemented
@@ -236,7 +242,7 @@ class Vertex:
     """Represents the vertex of a hexagon. Each hexagon points to 2 vertices,
     the top (N) and bottom (S) in pointy top orientation. 
     
-    Allowed directions: N, NW, SW, S, SE, SW"""
+    Allowed directions: N, NE, SE, S, SW, NW"""
 
     h: Hex
     direction: str
@@ -256,6 +262,9 @@ class Vertex:
         elif self.direction == "SE":
             self.h = self.h + SE
             self.direction = "N"
+
+    def __hash__(self):
+        return hash((self.h, self.direction))
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Vertex):
